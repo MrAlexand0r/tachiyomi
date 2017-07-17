@@ -175,6 +175,11 @@ class SettingsGeneralController : SettingsController() {
                 true
             }
         }
+        switchPreference {
+            key = Keys.hideReadChapters
+            titleRes = R.string.pref_hide_read_chapters
+            defaultValue = false
+        }
     }
 
     class LibraryColumnsDialog : DialogController() {
@@ -220,7 +225,5 @@ class SettingsGeneralController : SettingsController() {
                 }
             }
         }
-
     }
-
 }

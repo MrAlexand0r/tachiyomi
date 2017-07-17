@@ -103,6 +103,8 @@ object PreferenceKeys {
 
     const val defaultCategory = "default_category"
 
+    const val hideReadChapters = "pref_hide_read_chapters"
+
     fun sourceUsername(sourceId: Long) = "pref_source_username_$sourceId"
 
     fun sourcePassword(sourceId: Long) = "pref_source_password_$sourceId"

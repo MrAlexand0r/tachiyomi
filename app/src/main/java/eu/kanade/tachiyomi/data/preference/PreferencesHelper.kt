@@ -77,6 +77,8 @@ class PreferencesHelper(val context: Context) {
 
     fun updateOnlyNonCompleted() = prefs.getBoolean(Keys.updateOnlyNonCompleted, false)
 
+    fun hideReadChapters() = prefs.getBoolean(Keys.hideReadChapters, false)
+
     fun autoUpdateTrack() = prefs.getBoolean(Keys.autoUpdateTrack, true)
 
     fun askUpdateTrack() = prefs.getBoolean(Keys.askUpdateTrack, false)

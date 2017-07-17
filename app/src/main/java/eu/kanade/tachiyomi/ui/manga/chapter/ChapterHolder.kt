@@ -6,13 +6,17 @@ import eu.davidea.viewholders.FlexibleViewHolder
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.database.models.Manga
 import eu.kanade.tachiyomi.data.download.model.Download
+import eu.kanade.tachiyomi.data.preference.PreferencesHelper
 import kotlinx.android.synthetic.main.chapters_item.view.*
+import uy.kohesive.injekt.Injekt
+import uy.kohesive.injekt.api.get
 import java.util.*
 
 class ChapterHolder(
         private val view: View,
         private val adapter: ChaptersAdapter
 ) : FlexibleViewHolder(view, adapter) {
+    val preferences = Injekt.get<PreferencesHelper>()
 
     init {
         // We need to post a Runnable to show the popup to make sure that the PopupMenu is
@@ -23,6 +27,8 @@ class ChapterHolder(
 
     fun bind(item: ChapterItem, manga: Manga) = with(view) {
         val chapter = item.chapter
+
+        if(preferences.hideReadChapters() && chapter.read) return;
 
         chapter_title.text = when (manga.displayMode) {
             Manga.DISPLAY_NUMBER -> {
